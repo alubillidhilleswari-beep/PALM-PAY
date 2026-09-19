@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palm Pay — Pay With Your Palm (Demo)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🖐️ Palm Pay</h1>
+    <p>Pay by scanning your palm. <strong>Prototype/demo only</strong> — see README before using with real payments.</p>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="register">Register Palm</button>
+      <button class="tab-btn" data-tab="pay">Pay</button>
+      <button class="tab-btn" data-tab="users">Enrolled Users</button>
+    </div>
+
+    <section id="tab-register" class="tab-panel active">
+      <div class="camera-box">
+        <video id="video-register" autoplay playsinline></video>
+        <canvas id="canvas-register" class="hidden"></canvas>
+      </div>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" placeholder="e.g. Asha Reddy">
+      </div>
+      <div class="field">
+        <label for="balance">Starting wallet balance ($)</label>
+        <input type="number" id="balance" value="100">
+      </div>
+      <button id="capture-register-btn">📸 Capture Palm & Register</button>
+      <p id="register-result" class="result-msg"></p>
+    </section>
+
+    <section id="tab-pay" class="tab-panel">
+      <div class="camera-box">
+        <video id="video-pay" autoplay playsinline></video>
+        <canvas id="canvas-pay" class="hidden"></canvas>
+      </div>
+      <div class="field">
+        <label for="amount">Amount ($)</label>
+        <input type="number" id="amount" value="10">
+      </div>
+      <div class="field">
+        <label for="merchant">Merchant</label>
+        <input type="text" id="merchant" value="Demo Store">
+      </div>
+      <button id="capture-pay-btn">🖐️ Scan Palm & Pay</button>
+      <p id="pay-result" class="result-msg"></p>
+    </section>
+
+    <section id="tab-users" class="tab-panel">
+      <button id="refresh-users-btn">Refresh</button>
+      <ul id="users-list" class="users-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Backend must be running at <code>http://localhost:8000</code>. Camera access requires HTTPS or localhost.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
